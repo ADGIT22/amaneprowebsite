@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanepro.ma - Solutions de Traitement d'Eau Complet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a5c8c;
+            --secondary: #00a0df;
+            --accent: #0c9b7c;
+            --piscine: #00b4d8;
+            --light: #f0f8ff;
+            --dark: #1a3c4f;
+            --gray: #5a6d7d;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9fbfd;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(10, 92, 140, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(10, 92, 140, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 60, 79, 0.85), rgba(26, 60, 79, 0.9)), url('https://images.unsplash.com/photo-1569336415962-a32bd03b3ac3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .hero-btn {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .hero-btn.piscine {
+            background-color: rgba(0, 180, 216, 0.3);
+            border-color: var(--piscine);
+        }
+
+        .hero-btn:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-btn.piscine:hover {
+            color: var(--piscine);
+        }
+
+        /* Segments Section */
+        .segments {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .segment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .segment-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .segment-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .particuliers .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .professionnels .card-header {
+            background: linear-gradient(135deg, #0c9b7c, #0a8c6c);
+        }
+
+        .industriel .card-header {
+            background: linear-gradient(135deg, #1a3c4f, #0a5c8c);
+        }
+
+        .piscine .card-header {
+            background: linear-gradient(135deg, var(--piscine), #0093b8);
+        }
+
+        .card-header i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card-header h3 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .product-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .product-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-list li:last-child {
+            border-bottom: none;
+        }
+
+        .product-list li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .piscine .product-list li i {
+            color: var(--piscine);
+        }
+
+        /* Piscine Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: #e6f7ff;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .process-step::after {
+            content: "→";
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--piscine);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--piscine);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+            padding: 100px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial-container::before {
+            content: """;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            font-size: 8rem;
+            color: var(--light);
+            font-family: Georgia, serif;
+            z-index: 0;
+        }
+
+        .testimonial {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .client-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .client-info p {
+            font-size: 1rem;
+            color: var(--secondary);
+            margin: 0;
+            font-style: normal;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), #4cd0b0);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-form h3 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0c4d9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0c4d9;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .process-step {
+                flex: 0 0 calc(50% - 30px);
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .segment-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .process-step {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">Amane<span>Pro</span>.ma</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#particuliers">Particuliers</a></li>
+                    <li><a href="#professionnels">Professionnels</a></li>
+                    <li><a href="#industriel">Industriel</a></li>
+                    <li><a href="#piscine">Piscine</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">Demander un Devis</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Solutions Complètes de Traitement d'Eau</h1>
+            <p>Découvrez nos systèmes innovants pour une eau pure et saine, adaptés à tous vos besoins</p>
+            <div class="hero-buttons">
+                <a href="#particuliers" class="hero-btn">Particuliers</a>
+                <a href="#professionnels" class="hero-btn">Professionnels</a>
+                <a href="#industriel" class="hero-btn">Industriel</a>
+                <a href="#piscine" class="hero-btn piscine">Piscine</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments Section -->
+    <section class="segments" id="segments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Solutions Adaptées</h2>
+            </div>
+            <div class="segment-cards">
+                <!-- Particuliers Card -->
+                <div class="segment-card particuliers" id="particuliers">
+                    <div class="card-header">
+                        <i class="fas fa-home"></i>
+                        <h3>Solutions Particuliers</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Des systèmes compacts et efficaces pour garantir une eau pure et saine à votre domicile.</p>
+                        <ul class="product-list">
+                            <li><i class="fas fa-check-circle"></i> Osmoseurs domestiques</li>
+                            <li><i class="fas fa-check-circle"></i> Adoucisseurs d'eau</li>
+                            <li><i class="fas fa-check-circle"></i> Filtres à eau sous évier</li>
+                            <li><i class="fas fa-check-circle"></i> Fontaines à eau purifiée</li>
+                            <li><i class="fas fa-check-circle"></i> Systèmes UV de désinfection</li>
+                        </ul>
+                        <p><strong>Avantages :</strong> Installation facile, consommation énergétique réduite, eau pure à volonté</p>
+                        <a href="#contact" class="cta-button">Demander un Devis</a>
+                    </div>
+                </div>
+
+                <!-- Professionnels Card -->
+                <div class="segment-card professionnels" id="professionnels">
+                    <div class="card-header">
+                        <i class="fas fa-building"></i>
+                        <h3>Solutions Professionnelles</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Des solutions fiables pour les hôtels, restaurants, cliniques et petites entreprises.</p>
+                        <ul class="product-list">
+                            <li><i class="fas fa-check-circle"></i> Osmoseurs 500L-2000L/h</li>
+                            <li><i class="fas fa-check-circle"></i> Systèmes UV/Ozone</li>
+                            <li><i class="fas fa-check-circle"></i> Adoucisseurs commerciaux</li>
+                            <li><i class="fas fa-check-circle"></i> Filtres à sable et charbon actif</li>
+                            <li><i class="fas fa-check-circle"></i> Stations de traitement complètes</li>
+                        </ul>
+                        <p><strong>Avantages :</strong> Conformité aux normes sanitaires, débit adapté, maintenance simplifiée</p>
+                        <a href="#contact" class="cta-button">Demander un Devis</a>
+                    </div>
+                </div>
+
+                <!-- Industriel Card -->
+                <div class="segment-card industriel" id="industriel">
+                    <div class="card-header">
+                        <i class="fas fa-industry"></i>
+                        <h3>Solutions Industrielles</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Des systèmes sur-mesure pour l'agroalimentaire, le textile, la chimie et autres industries.</p>
+                        <ul class="product-list">
+                            <li><i class="fas fa-check-circle"></i> Osmoseurs industriels (3000L/h+)</li>
+                            <li><i class="fas fa-check-circle"></i> Stations de déminéralisation</li>
+                            <li><i class="fas fa-check-circle"></i> Traitement des eaux usées</li>
+                            <li><i class="fas fa-check-circle"></i> Systèmes de recyclage d'eau</li>
+                            <li><i class="fas fa-check-circle"></i> Solutions clés en main</li>
+                        </ul>
+                        <p><strong>Avantages :</strong> Haut débit, fiabilité industrielle, solutions sur mesure, ROI rapide</p>
+                        <a href="#contact" class="cta-button">Demander un Devis</a>
+                    </div>
+                </div>
+
+                <!-- Piscine Card -->
+                <div class="segment-card piscine" id="piscine">
+                    <div class="card-header">
+                        <i class="fas fa-swimming-pool"></i>
+                        <h3>Solutions Piscine</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Des solutions complètes pour une eau de piscine cristalline, saine et équilibrée toute l'année.</p>
+                        <ul class="product-list">
+                            <li><i class="fas fa-check-circle"></i> Filtration (sable, cartouche, diatomée)</li>
+                            <li><i class="fas fa-check-circle"></i> Systèmes de désinfection (chlore, sel, UV, ozone)</li>
+                            <li><i class="fas fa-check-circle"></i> Traitement automatique du pH</li>
+                            <li><i class="fas fa-check-circle"></i> Robots et balais nettoyeurs</li>
+                            <li><i class="fas fa-check-circle"></i> Analyseurs et régulateurs automatiques</li>
+                        </ul>
+                        <p><strong>Avantages :</strong> Eau pure et saine, réduction de produits chimiques, entretien simplifié</p>
+                        <a href="#contact" class="cta-button">Demander un Devis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Piscine Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Processus pour Piscines Parfaites</h2>
+                <p>Une approche complète pour une eau de piscine toujours cristalline</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="step-title">Filtration</h3>
+                    <p>Systèmes haute performance pour éliminer les impuretés et particules en suspension</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <h3 class="step-title">Désinfection</h3>
+                    <p>Élimination des bactéries et algues grâce à des technologies avancées</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="step-title">Équilibre de l'eau</h3>
+                    <p>Régulation automatique du pH et de l'alcalinité pour une eau parfaite</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="step-title">Entretien</h3>
+                    <p>Solutions automatisées pour un nettoyage facile et efficace</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Expertise et Engagement</h2>
+                    <p>Amanepro.ma est le partenaire privilégié pour vos besoins en traitement d'eau au Maroc. Forts de 15 ans d'expérience, nous proposons des solutions innovantes et adaptées à chaque secteur.</p>
+                    <p>Notre mission est de fournir une eau pure et saine à travers des technologies avancées tout en garantissant un service après-vente exceptionnel.</p>
+                    <p>Nous travaillons avec les marques les plus réputées du secteur pour vous garantir des équipements fiables et performants.</p>
+                    <div class="values">
+                        <ul class="product-list">
+                            <li><i class="fas fa-star"></i> Expertise technique certifiée</li>
+                            <li><i class="fas fa-star"></i> Produits de haute qualité</li>
+                            <li><i class="fas fa-star"></i> Service après-vente réactif</li>
+                            <li><i class="fas fa-star"></i> Solutions sur mesure</li>
+                            <li><i class="fas fa-star"></i> Engagement écologique</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="cta-button">Contactez-nous</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1336&q=80" alt="Système de traitement d'eau">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages de Clients</h2>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"Nous avons installé un système d'osmose inverse d'Amanepro dans notre restaurant il y a deux ans. La qualité de l'eau est exceptionnelle, nos clients l'adorent, et nous avons réduit nos coûts en eau embouteillée de 70%. Un excellent investissement!"</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Client">
+                        <div class="client-info">
+                            <h4>Karim El Fassi</h4>
+                            <p>Restaurant Le Ziryab, Marrakech</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-container" style="margin-top: 40px;">
+                <div class="testimonial">
+                    <p>"La solution piscine d'Amanepro a transformé l'entretien de notre complexe hôtelier. Plus besoin de produits chimiques agressifs, l'eau reste cristalline toute l'année avec un entretien minimal. Un vrai soulagement pour notre équipe!"</p>
+                    <div class="client">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client">
+                        <div class="client-info">
+                            <h4>Fatima Zahra</h4>
+                            <p>Directrice, Hôtel Oasis, Agadir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Contactez-nous</h2>
+                    <p>Vous avez des questions sur nos solutions de traitement d'eau? Notre équipe d'experts est à votre disposition pour vous conseiller.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>123 Avenue des Technologies, Casablanca Tech Park, Casablanca</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+212 5 22 123 456</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@amanepro.ma</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Horaires</h4>
+                                <p>Lun-Ven: 8h30-18h30 | Sam: 9h-13h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Demande d'Information</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nom Complet</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="segment">Segment d'Intérêt</label>
+                            <select id="segment" required>
+                                <option value="">Sélectionnez un segment</option>
+                                <option value="particulier">Particuliers</option>
+                                <option value="professionnel">Professionnels</option>
+                                <option value="industriel">Industriel</option>
+                                <option value="piscine">Piscine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Envoyer la Demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Amanepro.ma</h4>
+                    <p>Votre expert en solutions de traitement d'eau au Maroc. Nous proposons des systèmes innovants et fiables pour tous vos besoins en eau pure.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#particuliers">Solutions Particuliers</a></li>
+                        <li><a href="#professionnels">Solutions Professionnelles</a></li>
+                        <li><a href="#industriel">Solutions Industrielles</a></li>
+                        <li><a href="#piscine">Solutions Piscine</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Osmoseurs</a></li>
+                        <li><a href="#">Adoucisseurs</a></li>
+                        <li><a href="#">Filtres à Eau</a></li>
+                        <li><a href="#">Systèmes UV</a></li>
+                        <li><a href="#">Traitement Eaux Usées</a></li>
+                        <li><a href="#">Systèmes Piscine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Inscrivez-vous pour recevoir nos dernières offres et actualités</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" style="padding: 10px; border-radius: 5px; border: none; width: 100%;">
+                    </div>
+                    <button class="cta-button" style="width: 100%;">S'inscrire</button>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Amanepro.ma - Tous droits réservés. | Conçu avec <i class="fas fa-heart" style="color: #ff4d4d;"></i> au Maroc</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'white';
+            }
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre message ! Notre équipe vous contactera très rapidement.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
